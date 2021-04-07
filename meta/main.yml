@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  role_name: locale
+  author: mamono210
+  description: Configure Japanese locale with CentOS8
+  company: no name
+  license: "license (BSD, MIT)"
+  min_ansible_version: 3.0
+  platforms:
+    - name: EL
+      versions:
+        - 8
+  galaxy_tags: []
+dependencies: []
