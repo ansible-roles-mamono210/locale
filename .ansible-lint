@@ -3,4 +3,7 @@ exclude_paths:
   - molecule/user_pythons_global/requirements.yml
 parseable: true
 skip_list:
+  - 'command-instead-of-shell'
+  - 'experimental'
+  - 'git-latest'
   - 'role-name'
