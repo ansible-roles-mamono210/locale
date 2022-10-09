@@ -11,7 +11,7 @@
     - ansible_distribution_major_version == "8"
 
 - name: Check the current locale
-  ansible.builtin.shell: localectl
+  ansible.builtin.command: localectl
   changed_when: false
   when:
     - ansible_distribution == "CentOS"
@@ -19,7 +19,7 @@
   register: CURRENT_LOCALE
 
 - name: Create locale ja_JP.UTF-8
-  ansible.builtin.shell:
+  ansible.builtin.command:
     localedef -i ja_JP -c -f UTF-8 -A /usr/share/locale/locale.alias ja_JP.UTF-8
   when:
     - ansible_distribution == "CentOS"
@@ -27,7 +27,7 @@
     - '"ja_JP.UTF-8" not in CURRENT_LOCALE.stdout'
 
 - name: Set locale to ja_JP.UTF-8
-  ansible.builtin.shell:
+  ansible.builtin.command:
     localectl set-locale LANG=ja_JP.UTF-8
   when:
     - ansible_distribution == "CentOS"

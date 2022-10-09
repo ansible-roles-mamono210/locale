@@ -5,7 +5,7 @@
 
   tasks:
     - name: Check the current locale
-      ansible.builtin.shell: localectl
+      ansible.builtin.command: localectl
       register: CURRENT_LOCALE
       changed_when: false
 
