@@ -6,23 +6,23 @@
   tasks:
     - name: Check the current locale
       ansible.builtin.command: localectl
-      register: CURRENT_LOCALE
+      register: current_locale
       changed_when: false
 
     - name: Make sure ja_JP.UTF-8 is current locale
       ansible.builtin.assert:
         that:
-          - '"ja_JP.UTF-8" in CURRENT_LOCALE.stdout'
+          - '"ja_JP.UTF-8" in current_locale.stdout'
 
     - name: Show the current locale
       ansible.builtin.debug:
-        var: CURRENT_LOCALE
+        var: current_locale
 
     - name: Check OS version
       ansible.builtin.command: cat /etc/redhat-release
-      register: OS_VERSION
+      register: os_version
       changed_when: false
 
     - name: Show OS version
       ansible.builtin.debug:
-        var: OS_VERSION
+        var: os_version

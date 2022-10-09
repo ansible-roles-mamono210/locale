@@ -2,7 +2,3 @@
 exclude_paths:
   - molecule/user_pythons_global/requirements.yml
 parseable: true
-warn_list:
-  - 'experimental'
-  - 'git-latest'
-  - 'role-name'
