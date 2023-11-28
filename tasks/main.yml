@@ -6,16 +6,10 @@
   loop:
     - glibc-locale-source
     - glibc-langpack-en
-  when:
-    - ansible_distribution == "CentOS"
-    - ansible_distribution_major_version == "8"
 
 - name: Check the current locale
   ansible.builtin.command: localectl
   changed_when: false
-  when:
-    - ansible_distribution == "CentOS"
-    - ansible_distribution_major_version == "8"
   register: current_locale
 
 - name: Create locale ja_JP.UTF-8
@@ -24,8 +18,6 @@
   register: locale_created
   changed_when: locale_created.rc == 0
   when:
-    - ansible_distribution == "CentOS"
-    - ansible_distribution_major_version == "8"
     - '"ja_JP.UTF-8" not in current_locale.stdout'
 
 - name: Set locale to ja_JP.UTF-8
@@ -34,6 +26,4 @@
   register: locale_set
   changed_when: locale_set.rc == 0
   when:
-    - ansible_distribution == "CentOS"
-    - ansible_distribution_major_version == "8"
     - '"ja_JP.UTF-8" not in current_locale.stdout'
