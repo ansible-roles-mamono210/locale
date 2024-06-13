@@ -3,7 +3,7 @@
 Role Description
 =========
 
-Configure Japanese locale with CentOS Stream 8
+Configure Japanese locale with Linux.
 
 Requirements
 ------------
