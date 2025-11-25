@@ -7,13 +7,14 @@ platforms:
   - name: instance
     image: ${MOLECULE_IMAGE}
     command: /sbin/init
-    privileged: True
+    pre_build_image: true
+    privileged: true
 provisioner:
   name: ansible
   config_options:
     defaults:
       callbacks_enabled: ansible.posix.profile_tasks
-      roles_path: "$MOLECULE_PROJECT_DIRECTORY/.."
+      roles_path: "$HOME/.ansible/roles/:/tmp"
 verifier:
   name: ansible
 scenario:
